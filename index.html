@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Authenticating...</title>
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #c9d1d9;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    .spinner {
+      border: 6px solid #333;
+      border-top: 6px solid #58a6ff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #message {
+      font-size: 18px;
+    }
+
+    #videoContainer {
+      display: none;
+    }
+
+    video {
+      max-width: 90vw;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+
+    h2 {
+      color: #ff5555;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loading">
+    <div class="spinner"></div>
+    <div id="message">Authenticating system… please wait</div>
+  </div>
+
+  <div id="videoContainer">
+    <h2 id="rickTitle">Verification complete ✅</h2>
+    <video id="rickVideo" src="rickroll.mp4" controls autoplay></video>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      // Hide loading screen
+      document.getElementById('loading').style.display = 'none';
+      // Show video
+      document.getElementById('videoContainer').style.display = 'block';
+
+      // Wait 1 second after video shows, then change heading
+      setTimeout(() => {
+        document.getElementById('rickTitle').textContent = "You’ve been rickrolled 😎";
+      }, 1000);
+    }, 5000); // 5 seconds loading screen
+  </script>
+
+</body>
+</html>
